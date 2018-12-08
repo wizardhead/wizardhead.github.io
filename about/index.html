@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://wizardhead.com/about/index.html">
 <meta property="og:site_name" content="Wizardhead">
 <meta property="og:description" content="About this siteHello traveler!  My name is Immerses Theurgists.">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-12-06T00:38:34.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wizardhead">
@@ -52,6 +52,15 @@
     
     
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-130079317-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-130079317-1');
+</script>
+
 
     
 
@@ -80,19 +89,19 @@
             
             <a class="navbar-item " href="/archives">Archives</a>
             
-            <a class="navbar-item is-active" href="/about">About</a>
+            <a class="navbar-item " href="/2018/12/07/about/">About</a>
             
         </div>
         
         <div class="navbar-menu navbar-end">
             
-            <a class="navbar-item search" title="Buscar" href="javascript:;">
+            <a class="navbar-item search" title="Search" href="javascript:;">
                 <i class="fas fa-search"></i>
             </a>
             
             
             
-            <a class="navbar-item" title="About" href="/about">
+            <a class="navbar-item" title="About" href="/2018/12/07/about/">
                 
                 <i class="fab fa-info-circle"></i>
                 
@@ -120,7 +129,7 @@
         <span class="column is-narrow">
             
             
-            a few seconds de lectura (Alrededor de 10 palabras)
+            a few seconds read (About 10 words)
         </span>
         
     </div>
@@ -135,17 +144,10 @@
 </article>
 
 
-<div class="sharebox">
-    
-<div class="addthis_inline_share_toolbox"></div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c08adb4f725b386"></script>
-
-</div>
-
 
 
 <div class="comments">
-    <h3 class="title is-4">Comentarios</h3>
+    <h3 class="title is-4">Comments</h3>
     
 <script>
     var disqus_config = function () {
@@ -181,19 +183,6 @@
             <div class="column is-hidden-mobile"></div>
 
             
-            <div class="column is-narrow">
-                <div class="columns is-mobile is-multiline is-centered">
-                
-                    
-                <a class="column is-narrow has-text-black" title="GitHub" href="https://github.com/wizardhead/grimoire">
-                    
-                    GitHub
-                    
-                </a>
-                
-                </div>
-            </div>
-            
             
         </div>
     </div>
@@ -223,7 +212,7 @@
     window.FontAwesomeConfig = {
         searchPseudoElements: true
     }
-    moment.locale("default");
+    moment.locale("en-AU");
 </script>
 
 
@@ -253,34 +242,69 @@
 <script src="/js/script.js"></script>
 
     
-    <div class="searchbox ins-search">
+    <div class="searchbox google-cse-search">
     <div class="searchbox-mask"></div>
-    <div class="searchbox-container ins-search-container">
+    <div class="searchbox-container">
         <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Escribe algo...">
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+            <input type="text" class="searchbox-input" placeholder="Type something...">
+            <span class="searchbox-close searchbox-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
+        
+        <div class="searchbox-result-wrapper">
+            <gcse:searchresults-only></gcse:searchresults-only>
         </div>
+        
     </div>
+    
+    <script>
+        (function() {
+            var cx = '001199945556643408667:may70wh5640';
+            var gcse = document.createElement('script');
+            gcse.type = 'text/javascript';
+            gcse.async = true;
+            gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(gcse, s);
+        })();
+    </script>
+    
 </div>
 <script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Páginas',
-                CATEGORIES: 'Categorías',
-                TAGS: 'Tags',
-                UNTITLED: '(Sin título)',
-            },
-            CONTENT_URL: '/content.json',
+    (function (document, $) {
+        function debounce(func, wait, immediate) {
+            var timeout;
+            return function() {
+                var context = this, args = arguments;
+                var later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                var callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
         };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
+
+        $(document).on('click', '.navbar-main .search', function () {
+            $('.searchbox').toggleClass('show');
+        }).on('click', '.searchbox .searchbox-mask', function () {
+            $('.searchbox').removeClass('show');
+        }).on('click', '.searchbox-close', function () {
+            $('.searchbox').removeClass('show');
+        }).on('keydown', '.searchbox-input', debounce(function () {
+            var value = $(this).val();
+            try {
+                var element = google.search.cse.element.getElement('searchresults-only0');
+                if (value.trim() === '') {
+                    element.clearAllResults();
+                } else {
+                    element.execute(value);
+                }
+            } catch (e) {}
+        }, 300));
+    })(document, jQuery);
 </script>
-<script src="/js/insight.js"></script>
     
 </body>
 </html>
