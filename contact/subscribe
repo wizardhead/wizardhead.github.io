@@ -10,8 +10,8 @@
 		gtag('js', new Date())
 		gtag('config', 'UA-130079317-1')
 	</script>
-	<title>Wizardhead.com</title>
-	<meta name="Description" content="Transmedia visionmagick, art and alchemy" />
+	<title>Subscribe</title>
+	<meta name="Description" content="" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -22,17 +22,9 @@
 </head>
 
 <body>
-	<div class="content"><blockquote>
-<p>Utilizing transmedia visionmagick to unlock the gateways of conception and repair the karmic engine of the oversoul. 🌈</p>
-</blockquote>
-<p><small><img src="/assets/images/disintegrating-self-portrait.jpg"></small></p>
-<h2>🙋‍♂️ Hello, friend!</h2>
-<p>My name is <a href="/team/brendan/">Brendan Baldwin</a>.  I am an independent producer interested in exploring the interface of imagination and reality through art and technology.  I created this website to share my creations and my discoveries, and hopefully to connect with people like you.</p>
-<h2>🤔 Why are you here?</h2>
-<p>Perhaps you've seen some of the machine-learning videos I've produced using my experimental production pipeline called <a href="/projects/beholder/">Beholder</a> or maybe you heard some of the <a href="/projects/music/">Music</a> I've released.</p>
-<p>Whatever the reason, welcome.  I hope you'll look around and discover something interesting enough to consider subscribing to my free <a href="/contact/subscribe">Mailing List</a> so I can let you know when I've got something worth your time to check out.</p>
-<p>If you're interested in following a more in-depth account of my journey, you can also check out the <a href="/blog/">Blog</a> to learn more about how all the magical sausage is made.</p>
-</div>
+	<div class="content"><h1>📧 Subscribe to my Mailing List!</h1>
+<p>While I regularly post to many social media platforms, a lot of them (I'm looking at you, Facebook) are artificially restricting the reach of posts unless the page pays and I'm not going to pay to get people who already follow me to see my posts.  Therefore, sign up for occasional email updates and I'll make sure you won't miss out on the big announcements and new productions.</p>
+<script>if(!window.mootrack){ !function(t,n,e,o,a){function d(t){var n=~~(Date.now()/3e5),o=document.createElement(e);o.async=!0,o.src=t+"?ts="+n;var a=document.getElementsByTagName(e)[0];a.parentNode.insertBefore(o,a)}t.MooTrackerObject=a,t[a]=t[a]||function(){return t[a].q?void t[a].q.push(arguments):void(t[a].q=[arguments])},window.attachEvent?window.attachEvent("onload",d.bind(this,o)):window.addEventListener("load",d.bind(this,o),!1)}(window,document,"script","https://cdn.stat-track.com/statics/moosend-tracking.min.js","mootrack"); } mootrack('loadForm', 'b6f63a3478ed4f7aae638be537ef40b6');</script></div>
 
 	<div class="footer">
 		<div class="socialmedialinks">
@@ -49,7 +41,7 @@
 		</p>
 	</div>
 	<nav class="sitemenu">
-		<a class="active" href="/">🧙‍♂️ Wizardhead</a>
+		<a class="" href="/">🧙‍♂️ Wizardhead</a>
 		<a class="" href="/blog">📜 Blog</a>
 		<a class="" href="/projects">🖼 Projects</a>
 		<a class="" href="/contact">🖖 Contact</a>
