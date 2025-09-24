@@ -5,7 +5,7 @@ dist/
 
 # the content sub-directories are symlinks and generated only
 content/normalized/
-content/obsidian-vault/
+content/obsidian-vault
 
 # dependencies
 node_modules/
