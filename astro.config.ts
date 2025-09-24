@@ -6,6 +6,9 @@ import image from '@astrojs/image'
 
 // https://astro.build/config
 export default defineConfig({
+  build: {
+    assets: 'assets',
+  },
   integrations: [react(), mdx(), image()],
   vite: {
     ssr: {
