@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content'
+import { by, chronologically, descending } from '@/lib/sorts.ts'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogExcerpts from '@/components/BlogExcerpts.jsx'
+import MagicEmbed from '@/components/MagicEmbed.jsx'
+import MagicLink from '@/components/MagicLink.jsx'
+import TopicGrid from '@/components/TopicGrid.jsx'
+const welcome = (await getCollection('topics')).find(
+  (t) => t.data.permalink === '/',
+)!
+const posts = (await getCollection('blog'))
+  .sort(descending(by(chronologically((f) => f.data.published))))
+  .slice(0, 3) // most recent 3
+const works = (await getCollection('topics'))
+  .filter((f) => f.data.published)
+  .sort(descending(by(chronologically((f) => f.data.published)))).slice(0, 18)
+const { Content } = await render(welcome)
+---
+
+<BaseLayout pageTitle="Wizardhead" permalink="/">
+  <article class="home">
+    <section class="latest-blogs">
+      {
+        welcome && (
+          <Content components={{ ca: MagicLink, img: MagicEmbed }} />
+        )
+      }
+      <h2>Latest Blogs</h2>
+      <BlogExcerpts posts={posts} />
+    </section>
+    <section class="latest-works">
+      <h2>Latest Works</h2>
+      <TopicGrid topics={works  } />
+    </section>
+  </article>
+</BaseLayout>

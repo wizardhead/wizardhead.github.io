@@ -1,0 +1,35 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BreadCrumbs from '@/components/BreadCrumbs.astro'
+import MagicEmbed from '@/components/MagicEmbed'
+import MagicLink from '@/components/MagicLink'
+import MagicList from '@/components/MagicList'
+import PageNav from '@/components/PageNav'
+import YouTubeVideo from '@/components/YouTubeVideo.astro'
+const { topic, content: Content, singleColumn = false } = Astro.props
+---
+
+<BaseLayout pageTitle={topic.data.title} permalink={topic.data.permalink}>
+  <article class={singleColumn ? 'single-column' : ''}>
+    <PageNav
+      previousPage={topic.data.previous_page}
+      nextPage={topic.data.next_page}
+    />
+    <section>
+      <h1>
+        <BreadCrumbs path={topic.data.permalink} />
+        {topic.data.title}
+      </h1>
+    </section>
+    <section>
+      {topic.data.youtube_video_id && (
+        <YouTubeVideo title={topic.data.title} videoId={topic.data.youtube_video_id} />
+      )}
+      <Content components={{ a: MagicLink, img: MagicEmbed, ul: MagicList }} />
+    </section>
+    <PageNav
+      previousPage={topic.data.previous_page}
+      nextPage={topic.data.next_page}
+    />
+  </article>
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import BreadCrumbs from '../components/BreadCrumbs.astro'
+import CopyrightNotice from '../components/CopyrightNotice.astro'
+import Search from '../components/Search.jsx'
+import SiteNav from '../components/SiteNav.astro'
+import SocialLinks from '../components/SocialLinks.astro'
+const { pageTitle, permalink } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/wizardhead-favicon-wb2.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Wizardhead - {pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="wizardhead-logo">WIZARDHEAD</a>
+      <SiteNav />
+      <Search client:load />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <SocialLinks />
+      <CopyrightNotice />
+    </footer>
+    <script>
+      window.addEventListener('keyup', (e) => {
+        if (e.key === '/') {
+          e.stopImmediatePropagation()
+          document.getElementById('search-dialog').showModal();
+        }
+      })
+    </script>
+  </body>
+</html>

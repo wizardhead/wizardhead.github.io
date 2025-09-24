@@ -1,0 +1,28 @@
+#obsidian-vault build output
+dist/
+# generated types
+.astro/
+
+# the content sub-directories are symlinks and generated only
+content/normalized/
+content/obsidian-vault/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/

@@ -1,0 +1,25 @@
+---
+import TopicPage from '@/components/TopicPage.astro'
+import { getCollection, render } from 'astro:content'
+
+export async function getStaticPaths() {
+  const paths: { params: { permalink: string }; props: { topic: any } }[] = []
+  for (const topic of await getCollection('topics')) {
+    const { permalink } = topic.data
+    paths.push({ params: { permalink }, props: { topic } })
+  }
+  return paths
+}
+
+async function getTopic(permalink: string) {
+  const topics = await getCollection('topics')
+  return topics.find((topic) => {
+    return topic.data.permalink === permalink
+  })
+}
+
+const { permalink } = Astro.params
+const topic = Astro.props.topic || (permalink ? await getTopic(permalink) : null)
+const { Content } = await render(topic)
+---
+<TopicPage topic={topic} content={Content} />

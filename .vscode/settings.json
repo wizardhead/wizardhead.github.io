@@ -1,0 +1,8 @@
+{
+  "deno.enable": true,
+  "deno.lint": true,
+  "prettier.prettierPath": "./node_modules/.deno/prettier@3.6.2/node_modules/prettier",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true
+}

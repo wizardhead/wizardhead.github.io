@@ -1,0 +1,28 @@
+---
+import LightDarkToggle from '@/components/LightDarkToggle'
+---
+
+<input
+  type="checkbox"
+  id="menu-toggle"
+  aria-controls="nav-links"
+  aria-expanded="false"
+/>
+<label for="menu-toggle" class="hamburger-menu">☰</label>
+<nav>
+  <ul>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li>
+      <a href="#" onclick="document.getElementById('search-dialog').showModal()"
+        >Search</a
+      >
+    </li>
+    <!--<li> <a href="https://shop.wizardhead.com">Shop</a> </li>-->
+    <li><a href="/subscribe">Subscribe</a></li>
+    <li><a href="/works">Works</a></li>
+    <li><LightDarkToggle client:only /></li>
+  </ul>
+</nav>
+

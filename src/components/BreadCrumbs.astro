@@ -1,0 +1,30 @@
+---
+import { getAbsoluteLocaleUrl } from "astro:i18n"
+
+const { path } = Astro.props
+const parts = (path || '').split('/').filter(Boolean).slice(0, -1) // Remove the last part
+const specialText = new Map()
+
+// TODO: Let's move this stuff to a data file.
+specialText.set('ater', 'ATER')
+specialText.set('follakzoid', 'Föllakzoid')
+specialText.set('jonas-esser', 'Jonas Esser')
+specialText.set('nocturnus-ad', 'Nocturnus AD')
+
+---
+
+{
+  parts.map((part: string, index: number) => {
+    const url = '/' + parts.slice(0, index + 1).join('/')
+    return (
+      <span class="breadcrumbs">
+        {(!part.match(/^\d+$/) && (
+          <a href={url} class="breadcrumb-link">
+            {specialText.get(part) || part[0].toUpperCase() + part.slice(1)}
+          </a>
+        )) || <span>{part}</span>}
+        /
+      </span>
+    )
+  })
+}

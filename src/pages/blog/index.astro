@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BlogExcerpts from '@/components/BlogExcerpts'
+import { getCollection } from 'astro:content'
+import { descending, chronologically ,by} from '@/lib/sorts'
+
+const posts = (await getCollection('blog'))
+  .sort(descending(by(chronologically((f) => f.data.published))))
+---
+
+<BaseLayout pageTitle="Blog">
+  <section>
+    <h1>Blog</h1>
+    <BlogExcerpts posts={posts} />
+  </section>
+</BaseLayout>
