@@ -14,17 +14,19 @@ export interface ObsidianFile {
 export function extractImages(
   file: ObsidianFile,
 ): { src: string; alt: string }[] {
-  const images = Array.from(file.content.matchAll(/!\[(.*?)\]\((.*?)\)/g))
-    .map((match) => {
-      let [, alt, src] = match
-      alt = alt.trim()
-      src = src.trim()
-      if (!src.startsWith('http') && !src.startsWith('/')) {
-        src = src.replace(/^.*\/obsidian-vault\//, '/content/obsidian-vault/')
-      }
-      return { alt, src }
-    })
-    .filter(({ src }) => src.match(/\.(png|gif|jpg|jpeg)$/))
+  const imageMatches = Array.from(file.content.matchAll(/!\[(.*?)\]\((.*?)\)/g))
+  const images = []
+  for (const match of imageMatches) {
+    let [, alt, src] = match
+    alt = alt.trim()
+    src = src.trim()
+    if (!src.startsWith('http') && !src.startsWith('/')) {
+      src = src.replace(/^.*\/Attachments\//, `/Attachments/`)
+    }
+    if (src.match(/\.(png|gif|jpg|jpeg)$/)) {
+      images.push({ alt, src })
+    }
+  }
   return images
 }
 
@@ -67,7 +69,7 @@ export async function convertObsidianWikilinksToMarkdown(
         // relative to the current file and in the source vault folder so
         // we don't have to copy assets just to resolve.
         resolvedPath = path
-          .relative(`/${file.path}`, resolvedPath)
+          .relative(`/ ${file.path}`, resolvedPath)
           .replace('../Attachments/', '../obsidian-vault/Attachments/')
         // Embedding images is already handled by Markdown renderer as that is
         // standard meaning of ![]().  If we want to embed other media, we may

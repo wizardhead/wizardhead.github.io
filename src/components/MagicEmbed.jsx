@@ -1,4 +1,7 @@
 import { getCollection } from 'astro:content'
+// import * as path from 'node:path'
+// import { getVaultImage } from '../lib/images.ts'
+// import { Image } from 'astro:assets'
 import { parseLinkTextMicroformat } from '../lib/microformats.ts'
 import TopicGrid from './TopicGrid.jsx'
 import YouTubeEmbed from './YouTubeEmbed.tsx'
@@ -30,12 +33,30 @@ export default function MagicEmbed({ src, alt }) {
     }
   } else {
     if (
-      `${src}`.startsWith('https://www.youtube.com') ||
-      `${src}`.startsWith('https://youtube.com') ||
-      `${src}`.startsWith('https://youtu.be')
+      src.src.startsWith('https://www.youtube.com') ||
+      src.src.startsWith('https://youtube.com') ||
+      src.src.startsWith('https://youtu.be')
     ) {
       return <YouTubeEmbed url={src} text={text} />
     }
+    // if (src.src.startsWith('/@fs/')) {
+    //   const vaultPath = src.src
+    //     .replace(/(\?|\#).*$/g, '')
+    //     .replace(
+    //       /^.+\/Attachments\//,
+    //       '../../content/obsidian-vault/Attachments/',
+    //     )
+    //   const vaultImage = await getVaultImage(vaultPath)
+    //   if (vaultImage) {
+    //     console.log('Rendering vault image for ', vaultImage)
+    //     return (
+    //       <figure>
+    //         <Image src={vaultImage.default} alt={alt || text || ''} />
+    //         <figcaption>{text}</figcaption>
+    //       </figure>
+    //     )
+    //   }
+    // }
     return (
       <figure>
         <img src={src.src} alt={alt || text || ''} />
