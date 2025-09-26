@@ -2,6 +2,7 @@
   --curve: 8px;
   --backColor: #000;
   --textColor: #9ff;
+  --altColor: #ccc;
   --linkColor: #f9f;
   --headColor: #fff;
   --markColor: #ff0;
@@ -11,6 +12,7 @@
 [data-theme='light'] {
   --backColor: #fff;
   --textColor: #000;
+  --altColor: #777;
   --linkColor: #c0c;
   --headColor: #000;
   --markColor: #ff0;
@@ -20,6 +22,7 @@
 [data-theme='dark'] {
   --backColor: #000;
   --textColor: #9ff;
+  --altColor: #ccc;
   --linkColor: #f9f;
   --headColor: #fff;
   --markColor: #ff0;
@@ -30,6 +33,7 @@
   :root {
     --backColor: #000;
     --textColor: #9ff;
+    --altColor: #ccc;
     --linkColor: #f9f;
     --headColor: #fff;
     --markColor: #ff0;
@@ -119,7 +123,7 @@ figure {
 }
 
 figcaption {
-  color: var(--headColor);
+  color: var(--altColor);
   text-align: center;
   margin-top: 5px;
 }
@@ -205,6 +209,19 @@ a.wizardhead-logo:hover {
   padding: 1em;
 }
 
+p .topic-card .title-size-0,
+p .topic-card .title-size-1,
+p .topic-card .title-size-2,
+p .topic-card .title-size-3,
+p .topic-card .title-size-4,
+p .topic-card .title-size-5 {
+  font-size: inherit;
+}
+
+
+p .topic-card img {
+  display: none;
+}
 /*
 COMPONENT STYLING FOR GRIDS AND CARDS AND STUFF
 */
@@ -227,7 +244,7 @@ COMPONENT STYLING FOR GRIDS AND CARDS AND STUFF
   margin: 0;
   /* padding: 24px; */
   /* box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.05); */
-  width: 200px;
+  /* width: 200px; */
   height: 158px;
 }
 
@@ -308,7 +325,6 @@ article.home .latest-blogs {
   }
 
   article.home .topic-grid .topic-card {
-    width: 140px;
     height: 100px;
   }
 
@@ -341,11 +357,11 @@ article.home .latest-blogs {
   }
 }
 
-@media (max-width: 489px) {
+/* @media (max-width: 489px), (min-width: 600px) and (max-width: 1030px) { */
   article .topic-grid .topic-card {
     width: 100%;
   }
-}
+/* } */
 
 .blog-excerpts .blog-excerpt {
   /* border: solid #999 1px; */
@@ -395,8 +411,8 @@ h6 .breadcrumbs a.breadcrumb-link {
   font-weight: bolder;
   font-style: normal;
   font-size: 1.5em;
-  color: var(--backColor);
-  background-color: var(--textColor);
+  color: var(--altColor);
+  background-color: var(--backColor);
 }
 
 a {
