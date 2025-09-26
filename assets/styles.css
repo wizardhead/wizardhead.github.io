@@ -271,11 +271,11 @@ COMPONENT STYLING FOR GRIDS AND CARDS AND STUFF
 }
 
 .title-size-3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .title-size-4 {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
 }
 
 .page-nav .previous-page {
@@ -301,13 +301,14 @@ article.home .latest-works {
 article.home .latest-blogs {
   margin-right: 24px;
 }
+
 @media (min-width: 370px) and (max-width: 600px), (min-width: 740px) {
   article.home .topic-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 
   article.home .topic-grid .topic-card {
-    width: 130px;
+    width: 140px;
     height: 100px;
   }
 
@@ -328,7 +329,7 @@ article.home .latest-blogs {
   }
 
   .title-size-4 {
-    font-size: 0.5rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -336,6 +337,12 @@ article.home .latest-blogs {
   article.home .latest-blogs,
   article.home .latest-works {
     float: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 489px) {
+  article .topic-grid .topic-card {
     width: 100%;
   }
 }
