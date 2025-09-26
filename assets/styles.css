@@ -341,11 +341,11 @@ article.home .latest-blogs {
   }
 
   .title-size-3 {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 
   .title-size-4 {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 }
 
@@ -657,4 +657,10 @@ nav ul li {
     filter: drop-shadow(0 0 5px var(--linkColor));
     /* Return to initial state */
   }
+}
+
+.see-all-works-link {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
