@@ -58,6 +58,14 @@ footer {
   display: flex-row;
 }
 
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 16px;
+  color: var(--altColor);
+  font-style: italic;
+}
+
 main {
   padding: 20px;
 }
