@@ -508,18 +508,18 @@ li {
   
 }
 
-.blog-excerpt {
+/* .blog-excerpt {
   border-left: solid 2px var(--textColor);
-}
+} */
 
-.blog-excerpt h3,
+/* .blog-excerpt h3,
 .blog-excerpt p {
   margin-left: 16px;
-}
-.blog-excerpt h3 {
+} */
+/* .blog-excerpt h3 {
   position: relative;
   top: 16px;
-}
+} */
 
 nav ul {
   list-style: none;
