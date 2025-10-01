@@ -87,13 +87,13 @@ main figure img {
   max-width: 100%;
   text-align: center;
   background-color: #666;
-  border: 2px solid var(--textColor);
+  /* border: 2px solid var(--textColor); */
   /* Adjust the border width and color as needed */
   border-radius: var(--curve);
   /* Adjust the radius for more or less rounded corners */
 }
 
-article figure {
+article figure.part-width {
   width: 47.5%;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -102,13 +102,15 @@ article figure {
   height: auto;
 }
 
-article figure:nth-of-type(odd) {
+article figure.part-width:not(.left):nth-of-type(odd),
+article figure.part-width.right {
   float: right;
   /* padding: 0 1.5%; */
   margin-left: 5%;
 }
 
-article figure:nth-of-type(even) {
+article figure.part-width:not(.right):nth-of-type(even),
+article figure.part-width.left {
   float: left;
   /* padding: 0 1.5%; */
   margin-right: 5%;
@@ -137,7 +139,7 @@ figcaption {
 }
 
 @media (max-width: 600px) {
-  article figure {
+  article figure.part-width {
     float: none;
     width: 100%;
     margin-left: 0;
@@ -376,6 +378,22 @@ article.home .latest-blogs {
   padding: 0 0 10px 0px;
   border-radius: var(--curve);
   margin-bottom: 10px;
+}
+
+.blog-excerpt h3 {
+  display: block;
+  min-width: 200px;
+  overflow: auto;
+}
+
+.blog-excerpt img {
+  display: block;
+  float: left;
+  max-width: 200px;
+  height: auto;
+  border-radius: var(--curve);
+  margin-bottom: 10px;
+  margin-right: 16px;
 }
 
 article.single-column section {
