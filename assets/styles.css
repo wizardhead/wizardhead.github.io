@@ -400,6 +400,11 @@ article.single-column section {
   clear: both;
 }
 
+.latest-works h2 a,
+.latest-blogs h2 a {
+  color: var(--headColor);
+}
+
 h1 .breadcrumbs,
 h2 .breadcrumbs,
 h3 .breadcrumbs,
