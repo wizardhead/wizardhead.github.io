@@ -380,14 +380,26 @@ article.home .latest-blogs {
   margin-bottom: 10px;
 }
 
+/* @media (min-width: 580px) and (max-width: 759px) {
+  nav {
+    position: relative;
+  }
+} */
+
 @media (max-width: 510px), (min-width: 600px) and (max-width: 1100px) {
+  .home .blog-excerpts .blog-excerpt a img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
   .blog-excerpts .blog-excerpt a img {
     width: 100%;
   }
 }
 
 @media (min-width: 511px) {
-  .blog-excerpts .blog-excerpt img {
+  .home .blog-excerpts .blog-excerpt img {
     width: 200px;
   }
 }
@@ -400,6 +412,7 @@ article.home .latest-blogs {
 
 .blog-excerpt img {
   display: block;
+  width: 200px;
   float: left;
   height: auto;
   border-radius: var(--curve);
@@ -638,7 +651,7 @@ article figure.soundcloud-embed {
 }
 
 /* Media query for larger screens (show full navigation, hide hamburger) */
-@media (min-width: 760px) {
+@media (min-width: 745px) {
   /* Adjust breakpoint as needed */
   .hamburger-menu {
     display: none;
@@ -646,7 +659,7 @@ article figure.soundcloud-embed {
   }
 
   nav {
-    position: static;
+    position: relative;
     background-color: transparent;
     width: auto;
     z-index: auto;
