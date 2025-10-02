@@ -380,6 +380,18 @@ article.home .latest-blogs {
   margin-bottom: 10px;
 }
 
+@media (max-width: 510px) {
+  .blog-excerpts .blog-excerpt a img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 511px) {
+  .blog-excerpts .blog-excerpt img {
+    width: 200px;
+  }
+}
+
 .blog-excerpt h3 {
   display: block;
   min-width: 200px;
@@ -389,7 +401,6 @@ article.home .latest-blogs {
 .blog-excerpt img {
   display: block;
   float: left;
-  max-width: 200px;
   height: auto;
   border-radius: var(--curve);
   margin-bottom: 10px;
