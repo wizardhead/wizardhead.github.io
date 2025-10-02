@@ -1,3 +1,27 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --backColor: #fff;
+    --textColor: #000;
+    --altColor: #777;
+    --linkColor: #c0c;
+    --headColor: #000;
+    --markColor: #ff0;
+    --whLogo: url('/assets/wizardhead-logo-bw-300.png');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --backColor: #000;
+    --textColor: #9ff;
+    --altColor: #ccc;
+    --linkColor: #f9f;
+    --headColor: #fff;
+    --markColor: #ff0;
+    --whLogo: url('/assets/wizardhead-logo-wb-300.png');
+  }
+}
+
 :root {
   --curve: 8px;
   --backColor: #000;
@@ -27,18 +51,6 @@
   --headColor: #fff;
   --markColor: #ff0;
   --whLogo: url('/assets/wizardhead-logo-wb-300.png');
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --backColor: #000;
-    --textColor: #9ff;
-    --altColor: #ccc;
-    --linkColor: #f9f;
-    --headColor: #fff;
-    --markColor: #ff0;
-    --whLogo: url('/assets/wizardhead-logo-wb-300.png');
-  }
 }
 
 body {
@@ -242,6 +254,11 @@ COMPONENT STYLING FOR GRIDS AND CARDS AND STUFF
   gap: 16px;
   /* Space between cells */
   /* padding: 16px; */
+}
+
+a:not(.topic-card) img {
+  border-radius: var(--curve);
+  border: solid 2px var(--linkColor);
 }
 
 /* ul .topic-card, */
@@ -719,7 +736,7 @@ article figure.soundcloud-embed {
   }
 }
 
-.see-all-works-link {
+.see-all-link {
   display: block;
   text-align: center;
   width: 100%;
