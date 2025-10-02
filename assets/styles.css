@@ -384,11 +384,11 @@ article.home .latest-blogs {
   }
 }
 
-@media (max-width: 489px), (min-width: 600px) and (max-width: 1030px) {
+/* @media (max-width: 489px), (min-width: 600px) and (max-width: 1030px) { */
   .topic-grid .topic-card {
     width: 100%;
   }
-}
+/* } */
 
 .blog-excerpts .blog-excerpt {
   /* border: solid #999 1px; */
