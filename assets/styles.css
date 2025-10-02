@@ -621,6 +621,11 @@ nav ul li {
   border-bottom: none;
 }
 
+article figure.soundcloud-embed {
+  margin: 0;
+  padding: 0;
+}
+
 /* Media query for larger screens (show full navigation, hide hamburger) */
 @media (min-width: 760px) {
   /* Adjust breakpoint as needed */
