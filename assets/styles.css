@@ -78,9 +78,6 @@ blockquote {
   font-style: italic;
 }
 
-main {
-  padding: 20px;
-}
 
 strong {
   -webkit-text-stroke-width: 1px;;
@@ -109,7 +106,6 @@ article figure.part-width {
   width: 47.5%;
   margin-top: 1em;
   margin-bottom: 1em;
-  display: block;
   max-width: 100%;
   height: auto;
 }
@@ -186,7 +182,7 @@ body {
 
 header {
   color: var(--headColor);
-  padding: 10px 20px;
+  padding: 10px 0;
   display: flex;
   align-items: center;
   position: relative;
@@ -200,7 +196,7 @@ header {
   user-select: none;
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 0;
   color: var(--linkColor);
   z-index: 20;
   /* Ensure it's above the navigation */
@@ -211,7 +207,8 @@ header {
   display: block;
   text-indent: -9999px;
   overflow: hidden;
-  width: 200px;
+  width: 170px;
+  margin: 20px 0;
   /* Adjust as needed */
   height: 70px;
   /* Adjust as needed */
@@ -240,7 +237,6 @@ p .topic-card .title-size-5 {
   font-size: inherit;
 }
 
-
 p .topic-card img {
   display: none;
 }
@@ -256,22 +252,24 @@ COMPONENT STYLING FOR GRIDS AND CARDS AND STUFF
   /* padding: 16px; */
 }
 
-a:not(.topic-card) img {
+a:not(.topic-card):not(.yt-thumbnail-container) img {
   border-radius: var(--curve);
   border: solid 2px var(--linkColor);
 }
 
 /* ul .topic-card, */
 .topic-grid .topic-card {
+  display: inline-flex;
   place-self: center;
   position: relative;
   overflow: hidden;
   border-radius: var(--curve);
   border: solid 2px var(--linkColor);
-  margin: 0;
+  margin: 0 0 10px;
   /* padding: 24px; */
   /* box-shadow: 16px 16px 16px rgba(0, 0, 0, 0.05); */
   /* width: 200px; */
+  /* max-width: 200px; */
   height: 158px;
 }
 
@@ -340,18 +338,19 @@ section.page-nav {
 article.home .latest-blogs,
 article.home .latest-works {
   float: left;
-  width: 45%;
+  width: 47%;
+  margin: 0;
 }
 article.home .latest-blogs {
-  margin-right: 24px;
+  padding-right: 24px;
 }
 
 @media (min-width: 370px) and (max-width: 600px), (min-width: 740px) {
-  article.home .topic-grid {
+  .topic-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 
-  article.home .topic-grid .topic-card {
+  .topic-grid .topic-card {
     height: 100px;
   }
 
@@ -384,11 +383,11 @@ article.home .latest-blogs {
   }
 }
 
-/* @media (max-width: 489px), (min-width: 600px) and (max-width: 1030px) { */
-  article .topic-grid .topic-card {
+@media (max-width: 489px), (min-width: 600px) and (max-width: 1030px) {
+  .topic-grid .topic-card {
     width: 100%;
   }
-/* } */
+}
 
 .blog-excerpts .blog-excerpt {
   /* border: solid #999 1px; */
@@ -403,7 +402,7 @@ article.home .latest-blogs {
   }
 } */
 
-@media (max-width: 510px), (min-width: 600px) and (max-width: 1100px) {
+@media (max-width: 510px), (min-width: 601px) and (max-width: 1100px) {
   .home .blog-excerpts .blog-excerpt a img {
     width: 100%;
   }
@@ -554,11 +553,11 @@ li {
   z-index: 2;
 }
 
-.yt-thumbnail-container:hover .yt-play-btn,
+/* .yt-thumbnail-container:hover .yt-play-btn,
 .yt-play-btn:focus-visible,
 .yt-play-btn:hover {
-  transform: translate(-50%, -50%) scale(1.08);
-}
+  transform: translate(-50%, -52%) scale(1.08);
+} */
 
 .yt-play-svg {
   display: block;
@@ -566,10 +565,24 @@ li {
   height: 48px;
   pointer-events: none;
 }
+.yt-thumbnail-container:hover .yt-play-svg {
+  animation: fadeInFadeOut 1s infinite;
+}
+
+@keyframes fadeInFadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .yt-play-bg {
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-  
 }
 
 /* .blog-excerpt {
@@ -584,6 +597,31 @@ li {
   position: relative;
   top: 16px;
 } */
+
+header {
+  justify-content: space-between;
+}
+
+@media (max-width: 840px) {
+  header {
+    display: block;
+    justify-content: center;
+  }
+  .wizardhead-logo-container {
+    display: block;
+    width: 100%;
+  }
+  .wizardhead-logo {
+    clear: both;
+    display: block;
+    margin: 0 auto;
+  }
+  nav {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+  }
+}
 
 nav ul {
   list-style: none;
@@ -668,7 +706,7 @@ article figure.soundcloud-embed {
 }
 
 /* Media query for larger screens (show full navigation, hide hamburger) */
-@media (min-width: 745px) {
+@media (min-width: 500px) {
   /* Adjust breakpoint as needed */
   .hamburger-menu {
     display: none;
@@ -712,6 +750,9 @@ article figure.soundcloud-embed {
 
 .light-dark-toggle {
   cursor: pointer;
+}
+li.light-dark-toggle {
+  width: 30px;
 }
 
 @keyframes linkThrob {
