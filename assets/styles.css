@@ -599,7 +599,7 @@ header {
   justify-content: space-between;
 }
 
-@media (max-width: 840px) {
+@media (max-width: 810px) {
   header {
     display: block;
     justify-content: center;
