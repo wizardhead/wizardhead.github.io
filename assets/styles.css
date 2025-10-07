@@ -788,7 +788,3 @@ li.light-dark-toggle {
   margin-top: 16px;
 }
 
-section {
-  display: flexbox;
-  clear: both;
-}
