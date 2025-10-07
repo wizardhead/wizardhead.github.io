@@ -595,6 +595,10 @@ li {
   top: 16px;
 } */
 
+.hidden {
+  display: none;
+}
+
 header {
   justify-content: space-between;
 }
@@ -780,6 +784,11 @@ li.light-dark-toggle {
   width: 100%;
 }
 
-.fb-comments {
+.fb-comments, #fb-fallback {
   margin-top: 16px;
+}
+
+section {
+  display: flexbox;
+  clear: both;
 }
