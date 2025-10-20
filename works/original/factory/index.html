@@ -7,12 +7,8 @@ Watch Factory on YouTube
 </a> </figcaption> </figure> <p>Glimpsing the process of the hyperspace CAFO that is existence.</p> </section> <section>  </section> <section> <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v23.0&amp;appId=153080924793155"></script><div id="fb-root"></div><div class="fb-comments" data-href="https://wizardhead.com/works/original/factory" data-width="100%" data-colorscheme="dark" data-lazy="true" data-numposts="10"></div><div id="fb-fallback" class="hidden" role="status" aria-live="polite"><strong>Comments couldn’t be loaded.</strong><div>This may be due to ad blockers, privacy settings, or a network issue. You can always <a href="/contact">contact me directly</a> if Facebook comments don&#x27;t work for you.</div></div><script>
         // Helper: check if FB injected any content inside the comments container
         function commentsRendered() {
-          const container = document.getElementById('fb-comments-container');
-          if (!container) return false;
-          // FB typically injects an iframe and wraps the plugin in a div.fb_iframe_widget
-          const iframeWidget = container.querySelector('.fb_iframe_widget');
-          const iframe = container.querySelector('iframe');
-          return Boolean(iframeWidget || iframe);
+          const container = document.getElementById('fb-comments');
+          return Boolean(container && container.getAttribute('fb-xfbml-state') == 'rendered');
         }
         // Show fallback safely
         function showFallback() {
